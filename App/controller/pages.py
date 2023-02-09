@@ -35,6 +35,20 @@ def FAQs():
         q_faq=q_faq
     )
 
+@application.route('/mansour_test', methods=['GET', 'POST'])
+def mansour_test():
+    """Renders the mansour_test page."""
+    if request.method == "POST":
+        test_entry = TestComments(
+            title=request.form['title'], content=request.form['content'])
+        db.session.add(test_entry)
+        db.session.commit()
+    
+    return render_template(
+        'page/mansour_test.html',
+        title='Mansour Test Comments'
+    )
+
 @application.route('/ChangeLog')
 def ChangeLog():
     version = Version.query.order_by(Version.id.desc()).limit(10).all()

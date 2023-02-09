@@ -72,6 +72,12 @@ class ContactForm(db.Model):
     form_content = db.Column(db.Text, nullable=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
+#test
+class TestComments(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=True)
+    content = db.Column(db.Text, nullable=True)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
@@ -97,8 +103,5 @@ db.create_all()
 # commit the changes
 db.session.commit()
 
-# # admin |||||||||||||||||*************************** delete after deploy ***************************|||||||||||||||||
-# user = User(username='admin', password=generate_password_hash('admin'), role=1, credit=0, ldap=datetime.now())
-# db.session.add(user)
-# db.session.commit()
-# # admin |||||||||||||||||*************************** delete after deploy ***************************|||||||||||||||||
+
+
